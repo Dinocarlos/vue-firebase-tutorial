@@ -1,20 +1,14 @@
 <template>
     <div id="app">
      <b-nav justified tabs>
-  <b-nav-item href='login'>Login</b-nav-item>
-  <b-nav-item href='chat'>Chat</b-nav-item>
-  <b-nav-item disabled >Chat Privado</b-nav-item>
-  <b-nav-item @click="logout">Salir</b-nav-item>
-</b-nav>
+      <b-nav-item href='login'>Login</b-nav-item>
+      <b-nav-item href='chat'>Chat</b-nav-item>
+      <b-nav-item disabled >Chat Privado</b-nav-item>
+      <b-nav-item @click="logout">Salir</b-nav-item>
+    </b-nav>
       <img alt="Vue logo" src="http://www.atix.me/assets/logo_atix-f68cbb243f64ef85e3089e10ae14e433bbb63c863473b553cc8c92187a70b542.svg" width="220px" height="140px" >
       <router-view/>
-<div v-if="currentUser">
-  <h2>holaa</h2>
-</div>
-<div v-else>
-  <h2>chaoo</h2>
   </div>
-</div>
 </template>
 <script>
 import firebase from 'firebase';

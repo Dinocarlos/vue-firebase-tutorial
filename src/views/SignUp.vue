@@ -32,8 +32,8 @@ export default {
           (err) => {
             alert("Oops." + err.message);
           }
-        );
-    }
+        ); 
+}
   }
 }
 </script>

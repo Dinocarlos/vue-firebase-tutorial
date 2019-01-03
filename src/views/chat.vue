@@ -1,23 +1,33 @@
 <template>
   <div class="chat">
-    <div v-if="!username">You can't chat without a name. What's your name?
+    <div v-if="!username">Que apodo Quieres usar?
       <br>
       <input type="text" placeholder="Name" v-on:keyup.enter="updateUsername">
     </div>
     <div v-else>
-      From : {{username}}
-      <br>Message:
+      Apodo : {{username}}
+      <br> -Mensaje-
       <br>
-    <textarea name id cols="30" rows="10" placeholder="New Message" v-on:keyup.enter="sendMessage"></textarea>
+    <textarea name id cols="40" rows="4" placeholder="New Message" v-on:keyup.enter="sendMessage"></textarea>
     </div>
+    <br>
     <div class="messages">
-      <h3>Messages</h3>
-      <div class="message" v-for="message in messages" :key="message.username">
-        <strong>{{message.username}}</strong>
-        <p>{{message.text}}</p>
+    <div class="card" >
+      <div class="card-header">
+        <h3>
+            Mensajes 
+        </h3>
+        </div>
+        <div class="card-body">
+          <div class="message" v-for="message in messages" :key="message.username">
+            <li>
+            <strong >{{message.username}}</strong>
+            : {{message.text}}
+            </li>
+        </div>
       </div>
     </div>
-    <hr>
+  </div>
   </div>
 </template>
 <script>
@@ -66,6 +76,7 @@ export default {
       });
       vm.messages = messages;
     });
+
   }
 };
 </script>
