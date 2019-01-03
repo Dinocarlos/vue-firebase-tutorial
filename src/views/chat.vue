@@ -1,7 +1,5 @@
 <template>
   <div class="chat">
-      <p>volver al menu <router-link to="/home">Aqui.</router-link>
-    </p>
     <div v-if="!username">You can't chat without a name. What's your name?
       <br>
       <input type="text" placeholder="Name" v-on:keyup.enter="updateUsername">
