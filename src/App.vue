@@ -1,6 +1,7 @@
 <template>
   
     <div id="app">
+      <link href="tema.css" rel="stylesheet">
       <img alt="Vue logo" src="./assets/logo.png">
       <router-view/>
     </div>
