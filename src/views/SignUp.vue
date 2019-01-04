@@ -12,7 +12,8 @@
   </div>
 </template>
 <script>
-import firebase from "firebase";
+// import firebase from "firebase";
+import { database, auth } from "@/fire.js";
 export default {
   name: "signUp",
   data() {
@@ -23,19 +24,22 @@ export default {
   },
   methods: {
     signUp: function() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then((user) => {
-          this.$router.replace('home')
-          },
-          (err) => {
-            alert("Oops." + err.message);
-          }
-        ); 
-}
+      auth.createUserWithEmailAndPassword(this.email, this.password).then(
+        user => {
+          const usuarios = {
+            username: this.email
+          };
+          //Push message to firebase reference
+          database.ref("users").push(usuarios);
+          this.$router.replace("chat");
+        },
+        err => {
+          alert("Oops." + err.message);
+        }
+      );
+    }
   }
-}
+};
 </script>
 
 <style scoped>

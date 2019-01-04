@@ -24,18 +24,20 @@ export default {
   },
   methods: {
     login: function() {
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-        .then((user) => {
-          this.$router.replace('chat')
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(
+          user => {
+            this.$router.replace("chat");
           },
-          (err) => {
+          err => {
             alert("Oops." + err.message);
           }
         );
-    },
-  
+    }
   }
-}
+};
 </script>
 
 <style scoped>

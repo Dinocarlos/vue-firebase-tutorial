@@ -1,33 +1,58 @@
 <template>
   <div class="chat">
-    <div v-if="!username">Que apodo Quieres usar?
+    <div class="row">
+      <div class="col-sm-4">
+        <div v-if="!username">Que apodo Quieres usar?
+          <br>
+          <input type="text" placeholder="Name" v-on:keyup.enter="updateUsername">
+        </div>
+        <div v-else>
+          Apodo : {{username}}
+          <br>-Mensaje-
+          <br>
+          <textarea
+            name
+            id
+            cols="40"
+            rows="4"
+            placeholder="New Message"
+            v-on:keyup.enter="sendMessage"
+          ></textarea>
+        </div>
+      </div>
       <br>
-      <input type="text" placeholder="Name" v-on:keyup.enter="updateUsername">
-    </div>
-    <div v-else>
-      Apodo : {{username}}
-      <br> -Mensaje-
-      <br>
-    <textarea name id cols="40" rows="4" placeholder="New Message" v-on:keyup.enter="sendMessage"></textarea>
-    </div>
-    <br>
-    <div class="messages">
-    <div class="card" >
-      <div class="card-header">
-        <h3>
-            Mensajes 
-        </h3>
+      <div class="col-sm-4">
+        <div class="messages">
+          <div class="card">
+            <div class="card-header">
+              <h3>Mensajes</h3>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="message" v-for="message in messages" :key="message.username">
+              <li>
+                <strong>{{message.username}}</strong>
+                : {{message.text}}
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-header">
+            <h3>Usuarios</h3>
+          </div>
         </div>
         <div class="card-body">
-          <div class="message" v-for="message in messages" :key="message.username">
+          <div class="message" v-for="usuario in usuarios" :key="usuario.username">
             <li>
-            <strong >{{message.username}}</strong>
-            : {{message.text}}
+              <router-link to="#"><strong>{{usuario.username}}</strong></router-link>
             </li>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 <script>
@@ -37,7 +62,8 @@ export default {
   data() {
     return {
       username: "",
-      messages: []
+      messages: [],
+      usuarios: null
     };
   },
   methods: {
@@ -74,9 +100,20 @@ export default {
           text: data[key].text
         });
       });
-      vm.messages = messages;
+      this.messages = messages;
     });
-
+    let vmm = this;
+    const itemsRef1 = database.ref("users");
+    itemsRef1.on("value", snapshot => {
+      let data = snapshot.val();
+      let messages = [];
+      Object.keys(data).forEach(key => {
+        messages.push({
+          username: data[key].username
+        });
+      });
+      this.usuarios = messages;
+    });
   }
 };
 </script>
