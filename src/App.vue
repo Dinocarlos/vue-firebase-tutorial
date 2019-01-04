@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <b-nav justified tabs>
-      <b-nav-item href="login">Login</b-nav-item>
+      <b-nav-item href="home">Home</b-nav-item>
       <b-nav-item href="chat">Chat</b-nav-item>
-      <b-nav-item disabled>Chat Privado</b-nav-item>
+      <b-nav-item disabled href="chatprivado">Chat Privado</b-nav-item>
       <b-nav-item @click="logout">Salir</b-nav-item>
     </b-nav>
     <img

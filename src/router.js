@@ -5,6 +5,7 @@ import Home from "@/views/Home.vue";
 import Login from "@/views/Login.vue";
 import SignUp from "@/views/SignUp.vue";
 import chat from "@/views/chat.vue";
+import chatprivado from "@/views/chatprivado.vue";
 Vue.use(Router);
 
 const router = new Router({
@@ -23,6 +24,14 @@ const router = new Router({
       path: "/home",
       name: "home",
       component: Home,
+      meta: {
+        requiresAuth: true 
+        }
+    },
+    {
+      path: "/chatprivado",
+      name: "chatprivado",
+      component: chatprivado,
       meta: {
         requiresAuth: true 
         }
