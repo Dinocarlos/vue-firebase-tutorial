@@ -11,6 +11,7 @@
           <br>-Mensaje-
           <br>
           <textarea
+          class="textoFiguras"
             name
             id
             cols="40"
@@ -41,7 +42,7 @@
       <div class="col-sm-3">
         <div class="card">
           <div class="card-header">
-            <h3>Usuarios</h3>
+            <h3>Chat Privado</h3>
           </div>
         </div>
         <div class="card-body">
