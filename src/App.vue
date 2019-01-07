@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <b-nav justified tabs>
-      <b-nav-item href="home">Home</b-nav-item>
-      <b-nav-item href="chat">Chat</b-nav-item>
+      <b-nav-item href="/home">Home</b-nav-item>
+      <b-nav-item href="/chat">Chat Global</b-nav-item>
       <b-nav-item disabled href="chatprivado">Chat Privado</b-nav-item>
       <b-nav-item @click="logout">Salir</b-nav-item>
     </b-nav>
@@ -32,7 +32,7 @@ export default {
         .auth()
         .signOut()
         .then(() => {
-          this.$router.replace("login");
+          this.$router.replace("/login");
         });
     }
   }

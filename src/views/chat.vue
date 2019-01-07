@@ -48,7 +48,8 @@
         <div class="card-body">
           <div class="message" v-for="usuario in usuarios" :key="usuario.username">
             <li>
-              <router-link to="chatprivado"><strong>{{usuario.username}}</strong></router-link>
+            <router-link :to="{ name: 'chatprivado', params: {nameprivate: usuario.username} }"
+            >Con : {{usuario.username}} </router-link>
             </li>
           </div>
         </div>
@@ -57,7 +58,7 @@
   </div>
 </template>
 <script>
-import { database } from "@/fire.js";
+import { database, auth } from "@/fire.js";
 export default {
   name: "app",
   data() {

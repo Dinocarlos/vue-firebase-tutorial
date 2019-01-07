@@ -29,7 +29,7 @@ const router = new Router({
         }
     },
     {
-      path: "/chatprivado",
+      path: "/chatprivado/:nameprivate",
       name: "chatprivado",
       component: chatprivado,
       meta: {
