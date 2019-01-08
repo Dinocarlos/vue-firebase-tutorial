@@ -8,9 +8,9 @@
     </b-nav>
     <img
       alt="Vue logo"
-      src="http://www.atix.me/assets/logo_atix-f68cbb243f64ef85e3089e10ae14e433bbb63c863473b553cc8c92187a70b542.svg"
-      width="240px"
-      height="170px"
+      src="https://tuckersoft.net/ealing20541/img/anim-bandersnatch.gif"
+      width="250px"
+      height="180px"
     >
     <router-view/>
   </div>
